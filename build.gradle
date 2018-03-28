@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "0.0.0"
+version = zenevents_version
 group = "com.crafttweaker.zenevents"
 archivesBaseName = "zenevents"
 
@@ -27,14 +27,29 @@ minecraft {
 
 
 repositories {
-  maven {
-    url "http://tehnut.info/maven/"
-  }
+    maven {
+        url "http://tehnut.info/maven/"
+    }
+
+    maven {
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+
+    maven {
+        url "http://maven.blamejared.com"
+    }
+
+    maven {
+        url = "http://maven.thiakil.com"
+    }
 }
 
 dependencies {
   deobfCompile "com.wayoftime.bloodmagic:BloodMagic:${bloodmagic_version}"
-  deobfCompile "info.amerifrance.guideapi:Guide-API:1.12-2.1.4-57"
+  deobfCompile "info.amerifrance.guideapi:Guide-API:${guideapi_version}"
+  deobfCompile "vazkii.botania:Botania:${botania_version}"
+  deobfCompile "mezz.jei:${jei_version}"
+  deobfCompile "com.azanor.baubles:Baubles:${baubles_version}"
 }
 
 

@@ -1,6 +1,7 @@
 package com.crafttweaker.zenevents;
 
 import com.crafttweaker.zenevents.compat.bloodmagic.BMEventHandler;
+import com.crafttweaker.zenevents.compat.botania.BotaniaEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -17,8 +18,9 @@ public class ZenEvents {
     
     @Mod.EventHandler
     public void onPreInitialization(FMLPreInitializationEvent ev) {
-        if(Loader.isModLoaded("bloodmagic")) {
+        if(Loader.isModLoaded("bloodmagic"))
             MinecraftForge.EVENT_BUS.register(BMEventHandler.class);
-        }
+        if(Loader.isModLoaded("botania"))
+            MinecraftForge.EVENT_BUS.register(BotaniaEventHandler.class);
     }
 }
