@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "0.0.0"
+group = "com.crafttweaker.zenevents"
+archivesBaseName = "zenevents"
+
+sourceCompatibility = targetCompatibility = "1.8"
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
+}
+
+minecraft {
+    version = "1.12.2-14.23.1.2608"
+    runDir = "run"
+    mappings = "snapshot_20171003"
+    useDepAts = true
+}
+
+
+repositories {
+  maven {
+    url "http://tehnut.info/maven/"
+  }
+}
+
+dependencies {
+  deobfCompile "com.wayoftime.bloodmagic:BloodMagic:${bloodmagic_version}"
+  deobfCompile "info.amerifrance.guideapi:Guide-API:1.12-2.1.4-57"
+}
+
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

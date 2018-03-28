@@ -1,0 +1,15 @@
+[
+    {
+      "modid": "zenevents",
+      "name": "ZenEvents",
+      "description": "ZenEvents is an addon for CraftTweaker",
+      "version": "${version}",
+      "mcversion": "${mcversion}",
+      "authorList": [
+        "kindlich"
+      ],
+      "logoFile": "",
+      "screenshots": [],
+      "dependencies": ["crafttweaker"]
+    }
+]
