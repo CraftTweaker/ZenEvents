@@ -2,12 +2,13 @@ package com.crafttweaker.zenevents;
 
 import com.crafttweaker.zenevents.compat.bloodmagic.BMEventHandler;
 import com.crafttweaker.zenevents.compat.botania.BotaniaEventHandler;
+import com.crafttweaker.zenevents.compat.tinkerscontruct.TiConEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 
-@Mod(modid = ZenEvents.MODID, version = "0.0.0", name = ZenEvents.NAME, acceptedMinecraftVersions = "[1.12, 1.13)")
+@Mod(modid = ZenEvents.MODID, version = "0.0.0", name = ZenEvents.NAME, acceptedMinecraftVersions = "[1.12, 1.13)", dependencies = "required:crafttweaker")
 public class ZenEvents {
     
     public static final String MODID = "zenevents";
