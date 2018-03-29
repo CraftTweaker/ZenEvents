@@ -23,5 +23,7 @@ public class ZenEvents {
             MinecraftForge.EVENT_BUS.register(BMEventHandler.class);
         if(Loader.isModLoaded("botania"))
             MinecraftForge.EVENT_BUS.register(BotaniaEventHandler.class);
+        if(Loader.isModLoaded("tconstruct"))
+            MinecraftForge.EVENT_BUS.register(TiConEventHandler.class);
     }
 }
