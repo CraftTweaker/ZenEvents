@@ -26,11 +26,4 @@ public class ZEBloodMagicAltarCraftedEvent {
     public final void setOutput(IItemStack output) {
         event.setOutput(CraftTweakerMC.getItemStack(output));
     }
-    
-    @ZenGetter("isModifiable")
-    public final boolean isModifiable() {
-        return event.isModifiable();
-    }
-    
-    
 }

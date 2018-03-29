@@ -39,7 +39,7 @@ public class ZETiConModifier extends ModifierTrait implements ITrait {
     public ZeTiConModifierEventHandlers.blockHarvestDrops onBlockHarvestDrops = null;
     
     @ZenProperty
-    public ZeTiConModifierEventHandlers.damage onDamage = null;
+    public ZeTiConModifierEventHandlers.damage calcDamage = null;
     
     @ZenProperty
     public ZeTiConModifierEventHandlers.isCriticalHit calcCrit = null;
@@ -63,7 +63,7 @@ public class ZETiConModifier extends ModifierTrait implements ITrait {
     public ZeTiConModifierEventHandlers.onBlock onBlock = null;
     
     @ZenProperty
-    public ZeTiConModifierEventHandlers.onToolDamage calcToolDamage = null;
+    public ZeTiConModifierEventHandlers.onToolDamage onToolDamage = null;
     
     @ZenProperty
     public ZeTiConModifierEventHandlers.onToolHeal calcToolHeal = null;
@@ -153,15 +153,15 @@ public class ZETiConModifier extends ModifierTrait implements ITrait {
     @Override
     public boolean isCriticalHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target) {
         if(calcCrit != null)
-            return calcCrit.isCriticalHit(CraftTweakerMC.getIItemStack(tool), CraftTweakerMC.getIEntityLivingBase(player), CraftTweakerMC.getIEntityLivingBase(target));
+            return calcCrit.handle(CraftTweakerMC.getIItemStack(tool), CraftTweakerMC.getIEntityLivingBase(player), CraftTweakerMC.getIEntityLivingBase(target));
         else
             return super.isCriticalHit(tool, player, target);
     }
     
     @Override
     public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
-        if(onDamage != null)
-            return onDamage.calcDamage(CraftTweakerMC.getIItemStack(tool), CraftTweakerMC.getIEntityLivingBase(player), CraftTweakerMC.getIEntityLivingBase(target), damage, newDamage, isCritical);
+        if(calcDamage != null)
+            return calcDamage.handle(CraftTweakerMC.getIItemStack(tool), CraftTweakerMC.getIEntityLivingBase(player), CraftTweakerMC.getIEntityLivingBase(target), damage, newDamage, isCritical);
         else
             return super.damage(tool, player, target, damage, newDamage, isCritical);
     }
@@ -169,7 +169,7 @@ public class ZETiConModifier extends ModifierTrait implements ITrait {
     @Override
     public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical) {
         if(onHit != null)
-            onHit.onHit(CraftTweakerMC.getIItemStack(tool), CraftTweakerMC.getIEntityLivingBase(player), CraftTweakerMC.getIEntityLivingBase(target), damage, isCritical);
+            onHit.handle(CraftTweakerMC.getIItemStack(tool), CraftTweakerMC.getIEntityLivingBase(player), CraftTweakerMC.getIEntityLivingBase(target), damage, isCritical);
         super.onHit(tool, player, target, damage, isCritical);
     }
     
@@ -184,7 +184,7 @@ public class ZETiConModifier extends ModifierTrait implements ITrait {
     @Override
     public float knockBack(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float knockback, float newKnockback, boolean isCritical) {
         if(calcKnockBack != null)
-            return calcKnockBack.calcKnockBack(CraftTweakerMC.getIItemStack(tool), CraftTweakerMC.getIEntityLivingBase(player), CraftTweakerMC.getIEntityLivingBase(target), damage, knockback, newKnockback, isCritical);
+            return calcKnockBack.handle(CraftTweakerMC.getIItemStack(tool), CraftTweakerMC.getIEntityLivingBase(player), CraftTweakerMC.getIEntityLivingBase(target), damage, knockback, newKnockback, isCritical);
         else
             return super.knockBack(tool, player, target, damage, knockback, newKnockback, isCritical);
     }
@@ -199,8 +199,8 @@ public class ZETiConModifier extends ModifierTrait implements ITrait {
     
     @Override
     public int onToolDamage(ItemStack tool, int damage, int newDamage, EntityLivingBase entity) {
-        if(calcToolDamage != null)
-            return calcToolDamage.onToolDamage(CraftTweakerMC.getIItemStack(tool), damage, newDamage, CraftTweakerMC.getIEntityLivingBase(entity));
+        if(onToolDamage != null)
+            return onToolDamage.handle(CraftTweakerMC.getIItemStack(tool), damage, newDamage, CraftTweakerMC.getIEntityLivingBase(entity));
         else
             return super.onToolDamage(tool, damage, newDamage, entity);
     }
@@ -208,7 +208,7 @@ public class ZETiConModifier extends ModifierTrait implements ITrait {
     @Override
     public int onToolHeal(ItemStack tool, int amount, int newAmount, EntityLivingBase entity) {
         if(calcToolHeal != null)
-            return calcToolHeal.onToolHeal(CraftTweakerMC.getIItemStack(tool), amount, newAmount, CraftTweakerMC.getIEntityLivingBase(entity));
+            return calcToolHeal.handle(CraftTweakerMC.getIItemStack(tool), amount, newAmount, CraftTweakerMC.getIEntityLivingBase(entity));
         else
             return super.onToolHeal(tool, amount, newAmount, entity);
     }
@@ -216,7 +216,7 @@ public class ZETiConModifier extends ModifierTrait implements ITrait {
     @Override
     public void onRepair(ItemStack tool, int amount) {
         if(onToolRepair != null)
-            onToolRepair.onToolRepair(CraftTweakerMC.getIItemStack(tool), amount);
+            onToolRepair.handle(CraftTweakerMC.getIItemStack(tool), amount);
         else
             super.onRepair(tool, amount);
     }

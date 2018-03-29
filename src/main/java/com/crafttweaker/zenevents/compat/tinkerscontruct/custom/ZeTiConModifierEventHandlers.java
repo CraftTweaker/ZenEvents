@@ -50,21 +50,21 @@ public class ZeTiConModifierEventHandlers {
     @ZenRegister
     public interface isCriticalHit {
         
-        boolean isCriticalHit(IItemStack tool, IEntityLivingBase attacker, IEntityLivingBase target);
+        boolean handle(IItemStack tool, IEntityLivingBase attacker, IEntityLivingBase target);
     }
     
     @ZenClass("mods.tconstruct.traits.Damage")
     @ZenRegister
     public interface damage {
         
-        float calcDamage(IItemStack tool, IEntityLivingBase attacker, IEntityLivingBase target, float originalDamage, float currentDamage, boolean isCritical);
+        float handle(IItemStack tool, IEntityLivingBase attacker, IEntityLivingBase target, float originalDamage, float currentDamage, boolean isCritical);
     }
     
     @ZenClass("mods.tconstruct.traits.OnHit")
     @ZenRegister
     public interface onHit {
         
-        void onHit(IItemStack tool, IEntityLivingBase attacker, IEntityLivingBase target, float damage, boolean isCritical);
+        void handle(IItemStack tool, IEntityLivingBase attacker, IEntityLivingBase target, float damage, boolean isCritical);
     }
     
     @ZenClass("mods.tconstruct.traits.AfterHit")
@@ -78,7 +78,7 @@ public class ZeTiConModifierEventHandlers {
     @ZenRegister
     public interface knockBack {
         
-        float calcKnockBack(IItemStack tool, IEntityLivingBase attacker, IEntityLivingBase target, float damage, float knockback, float newKnockback, boolean isCritical);
+        float handle(IItemStack tool, IEntityLivingBase attacker, IEntityLivingBase target, float damage, float knockback, float newKnockback, boolean isCritical);
     }
     
     @ZenClass("mods.tconstruct.traits.OnBlock")
@@ -92,7 +92,7 @@ public class ZeTiConModifierEventHandlers {
     @ZenRegister
     public interface onToolDamage {
         
-        int onToolDamage(IItemStack tool, int damage, int newDamage, IEntityLivingBase entity);
+        int handle(IItemStack tool, int damage, int newDamage, IEntityLivingBase entity);
     }
     
     
@@ -100,14 +100,14 @@ public class ZeTiConModifierEventHandlers {
     @ZenRegister
     public interface onToolHeal {
         
-        int onToolHeal(IItemStack tool, int damage, int newDamage, IEntityLivingBase entity);
+        int handle(IItemStack tool, int damage, int newDamage, IEntityLivingBase entity);
     }
     
     @ZenClass("mods.tconstruct.traits.OnToolRepair")
     @ZenRegister
     public interface onToolRepair {
         
-        int onToolRepair(IItemStack tool, int amount);
+        int handle(IItemStack tool, int amount);
     }
     
     @ZenClass("mods.tconstruct.traits.OnPlayerHurt")
