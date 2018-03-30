@@ -11,11 +11,11 @@ import stanhebben.zenscript.annotations.*;
 @ZenClass("mods.tconstruct.ProjectileLaunchEvent")
 @ZenRegister
 @ModOnly("tconstruct")
-public class ZETiConProjectileLaunch implements IEventCancelable {
+public class ZETiConProjectileLaunchEvent implements IEventCancelable {
     
     private final ProjectileEvent.OnLaunch event;
     
-    public ZETiConProjectileLaunch(ProjectileEvent.OnLaunch event) {
+    public ZETiConProjectileLaunchEvent(ProjectileEvent.OnLaunch event) {
         this.event = event;
     }
     

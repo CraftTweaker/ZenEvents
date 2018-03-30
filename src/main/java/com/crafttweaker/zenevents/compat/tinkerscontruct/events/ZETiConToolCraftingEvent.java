@@ -11,7 +11,7 @@ import java.util.List;
 @ZenClass("mods.tconstruct.ToolCraftingEvent")
 @ZenRegister
 @ModOnly("tconstruct")
-public class ZETiConToolCraftingEvent extends ZETiConTinkerEvent {
+public class ZETiConToolCraftingEvent extends ZETiConTinkerCraftingEvent {
     
     private final TinkerCraftingEvent.ToolCraftingEvent event;
     

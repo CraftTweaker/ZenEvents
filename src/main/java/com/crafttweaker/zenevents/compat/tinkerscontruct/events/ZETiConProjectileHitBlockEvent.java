@@ -12,22 +12,12 @@ import stanhebben.zenscript.annotations.*;
 @ZenClass("mods.tconstruct.ProjectileHitBlockEvent")
 @ZenRegister
 @ModOnly("tconstruct")
-public class ZETiConProjectileHitBlock implements IEventCancelable {
+public class ZETiConProjectileHitBlockEvent {
     
     private final ProjectileEvent.OnHitBlock event;
     
-    public ZETiConProjectileHitBlock(ProjectileEvent.OnHitBlock event) {
+    public ZETiConProjectileHitBlockEvent(ProjectileEvent.OnHitBlock event) {
         this.event = event;
-    }
-    
-    @Override
-    public boolean isCanceled() {
-        return event.isCanceled();
-    }
-    
-    @Override
-    public void setCanceled(boolean canceled) {
-        event.setCanceled(canceled);
     }
     
     @ZenGetter("projectile")

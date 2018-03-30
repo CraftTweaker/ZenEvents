@@ -8,13 +8,13 @@ import crafttweaker.api.player.IPlayer;
 import slimeknights.tconstruct.library.events.*;
 import stanhebben.zenscript.annotations.*;
 
-@ZenClass("mods.tconstruct.TinkerEvent")
+@ZenClass("mods.tconstruct.TinkerCraftingEvent")
 @ZenRegister
 @ModOnly("tconstruct")
-public abstract class ZETiConTinkerEvent implements IEventCancelable {
+public abstract class ZETiConTinkerCraftingEvent implements IEventCancelable {
     private final TinkerCraftingEvent event;
     
-    protected ZETiConTinkerEvent(TinkerCraftingEvent event) {
+    protected ZETiConTinkerCraftingEvent(TinkerCraftingEvent event) {
         this.event = event;
     }
     

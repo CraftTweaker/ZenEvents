@@ -11,7 +11,7 @@ import java.util.List;
 @ZenClass("mods.tconstruct.ToolPartReplaceEvent")
 @ZenRegister
 @ModOnly("tconstruct")
-public class ZETiConToolPartReplaceEvent extends ZETiConTinkerEvent {
+public class ZETiConToolPartReplaceEvent extends ZETiConTinkerCraftingEvent {
     
     private final TinkerCraftingEvent.ToolPartReplaceEvent event;
     

@@ -9,7 +9,7 @@ import stanhebben.zenscript.annotations.*;
 @ZenClass("mods.tconstruct.ToolModifyEvent")
 @ZenRegister
 @ModOnly("tconstruct")
-public class ZETiConToolModifyEvent extends ZETiConTinkerEvent {
+public class ZETiConToolModifyEvent extends ZETiConTinkerCraftingEvent {
     
     private final TinkerCraftingEvent.ToolModifyEvent event;
     
