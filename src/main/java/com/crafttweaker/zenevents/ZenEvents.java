@@ -2,7 +2,9 @@ package com.crafttweaker.zenevents;
 
 import com.crafttweaker.zenevents.compat.bloodmagic.BMEventHandler;
 import com.crafttweaker.zenevents.compat.botania.BotaniaEventHandler;
+import com.crafttweaker.zenevents.compat.gamestages.GameStagesEventHandler;
 import com.crafttweaker.zenevents.compat.tinkerscontruct.TiConEventHandler;
+import crafttweaker.mc1120.world.MCFacing;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -25,5 +27,7 @@ public class ZenEvents {
             MinecraftForge.EVENT_BUS.register(BotaniaEventHandler.class);
         if(Loader.isModLoaded("tconstruct"))
             MinecraftForge.EVENT_BUS.register(TiConEventHandler.class);
+        if(Loader.isModLoaded("gamestages"))
+            MinecraftForge.EVENT_BUS.register(GameStagesEventHandler.class);
     }
 }

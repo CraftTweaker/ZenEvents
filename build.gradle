@@ -42,6 +42,10 @@ repositories {
     maven {
         url = "http://maven.thiakil.com"
     }
+
+    maven {
+        url 'https://maven.mcmoddev.com'
+    }
 }
 
 dependencies {
@@ -50,10 +54,12 @@ dependencies {
   deobfCompile "vazkii.botania:Botania:${botania_version}"
   deobfCompile "mezz.jei:${jei_version}"
   deobfCompile "com.azanor.baubles:Baubles:${baubles_version}"
-  deobfCompile("slimeknights.mantle:Mantle:1.12-1.3.1.+") {
+  deobfCompile "net.darkhax.gamestages:GameStages-${gamestages_version}"
+  deobfCompile "net.darkhax.bookshelf:Bookshelf-${bookshelf_version}"
+  deobfCompile("slimeknights.mantle:Mantle:${mantle_version}") {
     exclude group: 'mezz.jei'
   }
-  deobfCompile("slimeknights:TConstruct:1.12.2-2.9.0.+") {
+  deobfCompile("slimeknights:TConstruct:${ticon_version}") {
     exclude group: 'mezz.jei'
   }  
 }
